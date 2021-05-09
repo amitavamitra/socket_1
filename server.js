@@ -19,4 +19,7 @@ var io = socket(server);
 //  function takes the socket variable.
 io.on('connection' , function(socket){
 console.log('connection made by client: ' + socket.id)
+    socket.on('chat', function(data){
+        io.sockets.emit('chat', data)
+    })
 });
